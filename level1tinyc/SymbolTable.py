@@ -12,18 +12,14 @@ class SymbolTableEntry:
         print(f'Name: {self.name}, DataType: {self.datatype}, Value: {self.value}')
 @dataclass
 class SymbolTable:
-    table=[]
-    def addsymboltable(self,symbol):
-        self.table.append(symbol)
+    symboltable={}
+    def addSymbol(self,symbol):
+        self.symboltable[symbol.name]=symbol
     def nameinsymboltable(self,name):
-        for symbol in self.table:
-            if symbol.getsymbolname()==name:
-                return True
-        return False
-    def getsymbolentry(self,name):
-        for symbol in self.table:
-            if symbol.getsymbolname()==name:
-                return symbol
+        if name in self.symboltable.keys():
+            return True
+        else:
+            return False
     def print(self):
-        for i in self.table:
-            i.print()
+        for i in self.symboltable:
+            print(i)
