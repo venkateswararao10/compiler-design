@@ -61,7 +61,7 @@ class parser(Parser):
                     node=AssignAST(left=left,right=right)
                     return node if node.checkdatatypes() else print('error')
     @_('expr arop expr')
-    def assisgnment_stmt(self,value):
+    def expr(self,value):
         if value.ID in self.localsymboltable.symboltable.keys():
                 left=value.expr0
                 right=value.expr1
